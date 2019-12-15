@@ -1,0 +1,301 @@
+    *{  margin:0px;
+        padding: 0px;
+    }
+    $fonts: (
+        font-Source: 'Source Sans Pro', 
+        font-Hind: 'Hind', 
+        font-Fresca: 'Fresca',
+    );
+    @mixin button($color,$colorFont,$width,$height,$radius) {          
+        background:$color;
+        color:$colorFont;
+        width:$width;
+        height:$height;
+        border-radius:$radius;
+        border:none;
+        font-size: 15px;
+        &:hover { 
+            background: lighten($color, 10%);
+            font-size: 17px;           
+        }
+    }
+    @mixin link {
+        color:#ffffff;
+        &:hover {
+            font-weight:bold;
+            color: #cdcdcd;
+        } 
+    }
+body {
+    font-family:map-get($fonts, font-Source), sans-serif;
+    color:$bodyColorFont;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $backgroundColorBody;
+    
+    .header {
+        width: 100%;
+        height:720px; 
+        border-radius:0 0 450px 0;
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-position:center;
+        background-image: $backgroundImage;
+        display: flex;
+        justify-content: center;
+          
+        .header-wrap {
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 80%;
+            height: 720px;
+            margin-top:20px;
+      
+            .landing-logo {
+                display: flex;
+                flex-direction: row;
+                
+                img {
+                    display: block;
+                    flex-direction: row;
+                    align-self:flex-start;
+                    width: 40px;
+                    height:40px;
+                } 
+                
+                p {
+                    font-size: 15px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    margin-left:15px;
+                    margin-top: 5px;
+                    text-align: center;
+                }
+                
+                span {
+                    display:block;
+                    text-transform: none;
+                    font-size:8px;
+                }      
+            }
+            
+            .header_heading {
+                width: 480px;
+                margin-top: 81px;
+                font-size:70px;
+                font-weight:bolder;
+                position: relative;
+                z-index:10;
+                }
+            
+            .header_heading::after {
+                content:'';
+                display: block;
+                width: 295px;
+                height: 57px;
+                background-color: $ColorSelectWord;
+                position: absolute;
+                bottom:6px;
+                
+            }
+            .header_heading::before {
+                display: block;
+                content: "awesome";
+                color: $ColorFontSelectWord;
+                position: absolute;
+                top: 87px;
+                z-index: 1000;
+             }
+            
+            .header_text {
+                font-family:map-get($fonts, font-Fresca), sans-serif;
+                margin-top: 65px;
+                font-size: 17px;
+                width:650px;
+                height: 86px;
+                text-align:left;   
+            }
+            
+            .header_button {
+                display: inline-block;
+                @include button($ColorOfButton,#f5f7f0,140px,50px,2px); 
+            }
+
+           
+            .login {
+                @include link;
+            }
+            
+            div:last-of-type {
+                @extend .landing-logo;
+                margin-top: 64px;
+                width: 480px;
+                justify-content: space-between;
+                align-items: center;
+            }       
+        }
+    }
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        .section_text {
+            margin-top:48px;
+            width: 415px;
+            font-size:40px;
+            font-weight:500;
+            position: relative;
+        }
+        
+        .section_text::after {
+            content: "adventure";
+            background-color: $ColorSelectWord;
+            color: $ColorFontSelectWord;
+            position: absolute;
+            right:40px;
+        }
+        
+        .section_card_wrap {
+            @extend .section;
+            
+            .section_card {
+                width: 1116px;
+                height:325px;
+                background-color: $ColorSection_card;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 25px;
+            }
+
+            .section_card_img {
+                align-self: flex-end;
+                width:418px;
+                height: 285px;
+                margin: 0 0 20px 20px;
+                border-radius: 5px;
+            }
+            .section_card_heading {
+               margin-top: 50px;
+                color: #ffffff;
+                font-size: 23px;
+            }
+            .section_card_text {
+                font-family:map-get($fonts, font-Fresca), sans-serif;
+                color:#d3d3d3;
+                font-size:17px;
+            }
+            .section_link {
+                @include link;
+                font-size:15px;
+                margin-bottom: 20px;
+            }
+            .section_card_right_container {
+                margin-right: 80px;
+                width: 500px;
+                height: 325px;
+                @extend .section;
+                justify-content: space-around;
+                
+            }
+        }
+        .section_banner {
+            position:relative;
+            top:73px;
+            width: 1196px;
+            height:144px; 
+            background-image: $GradientSectionBaner;
+            border-radius: 5px;
+            margin-top: 67px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+           
+            .section_banner_button {
+                align-self: center;
+                @include button($ColorOfButton,#f5f7f0,140px,50px,2px);
+               
+            }
+            .section_banner_heading {
+                position: relative;
+                color:#2c2f3c;
+                font-size:25px;
+                font-weight: 700;
+                margin-top: 34px;
+            }
+            .section_banner_heading::after {
+                content: "start";
+                background-color: $ColorSelectWord;
+                color: #2c2f3c;
+                padding-top: 5px;
+                position: absolute;
+                left:100px;
+                bottom:0px;
+            }
+            .section_banner_text {
+                font-size: 14px;
+                color:#c0bfa0; 
+                margin-top: 25px; 
+            }
+            .section_banner_text_wrap {
+                display: flex;
+                flex-direction: column;
+               justify-content:flex-start;
+            }
+        }  
+    }
+    .footer {
+        color:#c0c3ce;
+        width: 100%;
+        height:242px;
+        background-color:$ColorBackgrounfFootter;
+        
+        .footer-wrap {
+            margin-top:137px;    
+            display: flex;
+            flex-direction: row;
+            justify-content:space-around;
+            align-items: center;
+        }
+    
+        .footer_logo {
+            display: flex;
+            flex-direction: row;
+            
+            img {
+                flex-direction: row;
+                display: block;
+                width: 40px;
+                align-self:flex-start;
+                 height:40px;
+            } 
+           
+            p {
+                 font-size: 15px;
+                 font-weight: 600;
+                 text-transform: uppercase;
+                 margin-left:15px;
+                 margin-top: 5px;
+                 text-align: center;
+            }
+           
+            span {
+                display:block;
+                text-transform: none;
+                font-size:8px;
+            }      
+        }
+        .footer_text {
+            width: 286px;
+            height: 49px;
+            font-size:15px ;
+        }
+    }
+
+}
+
+
