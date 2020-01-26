@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none;
+    display:block;
+}
+ul li{
+    position: relative;
+    left: 30px;
+    top: -25px;
+}
